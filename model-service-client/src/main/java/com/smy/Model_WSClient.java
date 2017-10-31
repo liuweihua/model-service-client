@@ -155,13 +155,15 @@ public class Model_WSClient {
 			
 			Application_AlphaS_Proxy proxy = new Application_AlphaS_Proxy();
 			Application_PortType service = proxy.getApplication_PortType();
-			Object workResult = service.modelScore(cell,inputJson,null);
+			Object alphasResult = service.modelScore(cell,inputJson,null);
 			
 			ModelServiceResponse response = new ModelServiceResponse();
 			//返回alpha-S输入项json
 			response.setInputParams(inputJson);
 			//返回alpha-S的模型结果
-			response.setModelScore(workResult+"");
+			if(alphasResult != null){
+				response.setModelResult(String.valueOf(alphasResult));
+			}
 			
 			return response;
 		} catch (Exception e) {
