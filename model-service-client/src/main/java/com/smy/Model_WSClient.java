@@ -1021,19 +1021,19 @@ public class Model_WSClient {
 		ModelServiceResponse response = null;
 		
 //		/**********************工作模型测试(-1.0)**********************/
-		inputMap.put("arti_date", "20170317");
-		inputMap.put("cd_comp_name1", "佛山市哈帕萨幕墙门窗有限公司");
-		inputMap.put("cd_comp_name2", "佛山市皇派门窗有限公司");
-		inputMap.put("cd_comp_name3", "四川久大制盐有限责任公司长山盐矿");
-		inputMap.put("cd_comp_name4", null);
-		inputMap.put("cd_comp_name5", null);
-		inputMap.put("cd_comp_info_updt_time1", "20170216");
-		inputMap.put("cd_comp_info_updt_time2", "20161107");
-		inputMap.put("cd_comp_info_updt_time3", "20060823");
-		inputMap.put("cd_comp_info_updt_time4", "");
-		inputMap.put("cd_comp_info_updt_time5", "");
-		response = Model_WSClient.getWorkModelScore(mobile,inputMap);
-		
+//		inputMap.put("arti_date", "20170317");
+//		inputMap.put("cd_comp_name1", "佛山市哈帕萨幕墙门窗有限公司");
+//		inputMap.put("cd_comp_name2", "佛山市皇派门窗有限公司");
+//		inputMap.put("cd_comp_name3", "四川久大制盐有限责任公司长山盐矿");
+//		inputMap.put("cd_comp_name4", null);
+//		inputMap.put("cd_comp_name5", null);
+//		inputMap.put("cd_comp_info_updt_time1", "20170216");
+//		inputMap.put("cd_comp_info_updt_time2", "20161107");
+//		inputMap.put("cd_comp_info_updt_time3", "20060823");
+//		inputMap.put("cd_comp_info_updt_time4", "");
+//		inputMap.put("cd_comp_info_updt_time5", "");
+//		response = Model_WSClient.getWorkModelScore(mobile,inputMap);
+//		
 		/*********************学历模型**************************/
 //		inputMap.put("college_is_211", "0");
 //		inputMap.put("py_degree", 0);
@@ -1059,21 +1059,21 @@ public class Model_WSClient {
 //		response = Model_WSClient.getWangcha4ModelScore(mobile, inputMap);
 //		
 //		/*********************失联模型**************************/
-//		inputMap.put("CALLMIN6MONTH", "70067");
-//		inputMap.put("id_match", "0");
-//		inputMap.put("xiaohao", "0");
-//		inputMap.put("zj_contact_intersect_cnt", "61");
-//		inputMap.put("CALLINTIME", "28368");
-//		inputMap.put("EARLIEST_CALL_DELTA_MONTHS", "5");
-//		inputMap.put("contact_normal_cnt", null);
-//		inputMap.put("CALL_DISTINCT", "154");
-//		inputMap.put("ratio_contact_calls", "0.70");
-//		inputMap.put("jxl_phoneinuse", "null");
-//		inputMap.put("CALLOUTTIME", null);
-//		inputMap.put("bj_contact_intersect_cnt", "56");
-//		inputMap.put("call_contact_intersect_cnt", null);
-//		inputMap.put("CALLTIMES6MONTH", "712");
-//		response = Model_WSClient.getShilianModelScore(mobile, inputMap);
+		inputMap.put("CALLMIN6MONTH", "70067");
+		inputMap.put("id_match", "0");
+		inputMap.put("xiaohao", "0");
+		inputMap.put("zj_contact_intersect_cnt", "61");
+		inputMap.put("CALLINTIME", "28368");
+		inputMap.put("EARLIEST_CALL_DELTA_MONTHS", "5");
+		inputMap.put("contact_normal_cnt", null);
+		inputMap.put("CALL_DISTINCT", "154");
+		inputMap.put("ratio_contact_calls", "0.70");
+		inputMap.put("jxl_phoneinuse", "null");
+		inputMap.put("CALLOUTTIME", null);
+		inputMap.put("bj_contact_intersect_cnt", "56");
+		inputMap.put("call_contact_intersect_cnt", null);
+		inputMap.put("CALLTIMES6MONTH", "712");
+		response = Model_WSClient.getShilianModelScore(mobile, inputMap);
 		
 		
 		/**********************Alpha-S模型测试*****************/

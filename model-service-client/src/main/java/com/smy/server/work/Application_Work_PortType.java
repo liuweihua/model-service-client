@@ -37,7 +37,6 @@ import org.apache.axis.encoding.ser.SimpleListDeserializerFactory;
 import org.apache.axis.encoding.ser.SimpleListSerializerFactory;
 import org.apache.axis.encoding.ser.SimpleSerializerFactory;
 import org.apache.axis.soap.SOAPConstants;
-import org.apache.axis.utils.JavaUtils;
 
 import com.smy.server.Application_PortType;
 
@@ -72,8 +71,8 @@ public class Application_Work_PortType extends Stub implements Application_PortT
         param.setNillable(true);
         oper.addParameter(param);
         
-        oper.setReturnType(new QName("http://www.w3.org/2001/XMLSchema", "double"));
-        oper.setReturnClass(Double.class);
+        oper.setReturnType(new QName("http://www.w3.org/2001/XMLSchema", "string"));
+        oper.setReturnClass(String.class);
         oper.setReturnQName(new QName("tns", "CreditScore_alphas_gongzuoResult"));
         oper.setStyle(Style.WRAPPED);
         oper.setUse(Use.LITERAL);

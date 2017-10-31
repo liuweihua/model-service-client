@@ -57,10 +57,10 @@ public class Application_Glren_Proxy implements Application_PortType {
   
   
   @Override
-  public Double modelScore(String cell, Object inputObj,Map<String, Object> params) throws Exception {
+  public Object modelScore(String cell, Object inputObj,Map<String, Object> params) throws Exception {
 	  if (application_PortType == null)
 	      _initApplicationProxy();
-	    return (Double) application_PortType.modelScore(cell, inputObj,params);
+	    return application_PortType.modelScore(cell, inputObj,params);
 	  
   }
   
