@@ -100,7 +100,7 @@ public class Model_WSClient {
 			}
 			Application_Br_Proxy proxy = new Application_Br_Proxy();
 			Application_PortType service = proxy.getApplication_PortType();
-			Object brCreditScore = (Double) service.modelScore(cell, valueArray,null);
+			Object brCreditScore = service.modelScore(cell, valueArray,null);
 			
 			return brCreditScore+"";
 		} catch (Exception e) {
