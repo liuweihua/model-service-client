@@ -240,7 +240,9 @@ public class Model_WSClient {
 			ModelServiceResponse response = new ModelServiceResponse();
 			//返回DNA3.0输入项json
 			response.setInputParams(inputJson);
-			response.setModelScore(dna3Result.toString());
+			if(dna3Result != null){
+				response.setModelResult(String.valueOf(dna3Result));
+			}
 			
 			return response;
 		} catch (Exception e) {
@@ -300,7 +302,9 @@ public class Model_WSClient {
 			//返回负面1输入项json
 			response.setInputParams(inputJson);
 			//返回负面1的模型分
-			response.setModelScore(fumian1Score+"");
+			if(fumian1Score != null){
+				response.setModelResult(String.valueOf(fumian1Score));
+			}
 			
 			return response;
 		} catch (Exception e) {
@@ -353,13 +357,15 @@ public class Model_WSClient {
 			
 			Application_Fumian2_Proxy proxy = new Application_Fumian2_Proxy();
 			Application_PortType service = proxy.getApplication_PortType();
-			Object workScore = service.modelScore(cell,inputJson,null);
+			Object fumian2Score = service.modelScore(cell,inputJson,null);
 			
 			ModelServiceResponse response = new ModelServiceResponse();
 			//返回负面2输入项json
 			response.setInputParams(inputJson);
 			//返回负面2的模型分
-			response.setModelScore(workScore+"");
+			if(fumian2Score != null){
+				response.setModelResult(String.valueOf(fumian2Score));
+			}
 			
 			return response;
 		} catch (Exception e) {
@@ -412,13 +418,15 @@ public class Model_WSClient {
 			
 			Application_Glren_Proxy proxy = new Application_Glren_Proxy();
 			Application_PortType service = proxy.getApplication_PortType();
-			Object workScore = service.modelScore(cell,inputJson,null);
+			Object glrScore = service.modelScore(cell,inputJson,null);
 			
 			ModelServiceResponse response = new ModelServiceResponse();
 			//返回关联人输入项json
 			response.setInputParams(inputJson);
 			//返回关联人的模型分
-			response.setModelScore(workScore+"");
+			if(glrScore != null){
+				response.setModelResult(String.valueOf(glrScore));
+			}
 			
 			return response;
 		} catch (Exception e) {
@@ -471,13 +479,15 @@ public class Model_WSClient {
 			
 			Application_Liehu_Proxy proxy = new Application_Liehu_Proxy();
 			Application_PortType service = proxy.getApplication_PortType();
-			Object workScore = service.modelScore(cell,inputJson,null);
+			Object liehuScore = service.modelScore(cell,inputJson,null);
 			
 			ModelServiceResponse response = new ModelServiceResponse();
 			//返回猎户输入项json
 			response.setInputParams(inputJson);
 			//返回猎户的模型分
-			response.setModelScore(workScore+"");
+			if(liehuScore != null){
+				response.setModelResult(String.valueOf(liehuScore));
+			}
 			
 			return response;
 		} catch (Exception e) {
@@ -531,14 +541,16 @@ public class Model_WSClient {
 			Application_Quyu_Proxy proxy = new Application_Quyu_Proxy();
 			Application_PortType service = proxy.getApplication_PortType();
 			
-			Object workScore = service.modelScore(cell,inputJson,null);
+			Object quyuScore = service.modelScore(cell,inputJson,null);
 			
 			ModelServiceResponse response = new ModelServiceResponse();
 			
 			//无输入项，返回空字符
 			response.setInputParams(inputJson);
 			//返回区域模型分
-			response.setModelScore(workScore+"");
+			if(quyuScore != null){
+				response.setModelResult(String.valueOf(quyuScore));
+			}
 			
 			return response;
 		} catch (Exception e) {
@@ -591,13 +603,15 @@ public class Model_WSClient {
 			
 			Application_Rh_Proxy proxy = new Application_Rh_Proxy();
 			Application_PortType service = proxy.getApplication_PortType();
-			Object workScore = service.modelScore(cell,inputJson,null);
+			Object rhScore = service.modelScore(cell,inputJson,null);
 			
 			ModelServiceResponse response = new ModelServiceResponse();
 			//返回人行输入项json
 			response.setInputParams(inputJson);
 			//返回人行的模型分
-			response.setModelScore(workScore+"");
+			if(rhScore != null){
+				response.setModelResult(String.valueOf(rhScore));
+			}
 			
 			return response;
 		} catch (Exception e) {
@@ -650,13 +664,15 @@ public class Model_WSClient {
 			
 			Application_Shilian_Proxy proxy = new Application_Shilian_Proxy();
 			Application_PortType service = proxy.getApplication_PortType();
-			Object workScore = service.modelScore(cell,inputJson,null);
+			Object shilianScore = service.modelScore(cell,inputJson,null);
 			
 			ModelServiceResponse response = new ModelServiceResponse();
 			//返回失联输入项json
 			response.setInputParams(inputJson);
 			//返回失联的模型分
-			response.setModelScore(workScore+"");
+			if(shilianScore != null){
+				response.setModelResult(String.valueOf(shilianScore));
+			}
 			
 			return response;
 		} catch (Exception e) {
@@ -709,13 +725,15 @@ public class Model_WSClient {
 			
 			Application_Srfuzhai_Proxy proxy = new Application_Srfuzhai_Proxy();
 			Application_PortType service = proxy.getApplication_PortType();
-			Object workScore = service.modelScore(cell,inputJson,null);
+			Object shouruScore = service.modelScore(cell,inputJson,null);
 			
 			ModelServiceResponse response = new ModelServiceResponse();
 			//返回收入负债输入项json
 			response.setInputParams(inputJson);
 			//返回收入负债的模型分
-			response.setModelScore(workScore+"");
+			if(shouruScore != null){
+				response.setModelResult(String.valueOf(shouruScore));
+			}
 			
 			return response;
 		} catch (Exception e) {
@@ -769,13 +787,15 @@ public class Model_WSClient {
 			
 			Application_Tonghua_Proxy proxy = new Application_Tonghua_Proxy();
 			Application_PortType service = proxy.getApplication_PortType();
-			Object workScore = service.modelScore(cell,inputJson,null);
+			Object tonghuaScore = service.modelScore(cell,inputJson,null);
 			
 			ModelServiceResponse response = new ModelServiceResponse();
 			//返回通话输入项json
 			response.setInputParams(inputJson);
 			//返回通话的模型分
-			response.setModelScore(workScore+"");
+			if(tonghuaScore != null){
+				response.setModelResult(String.valueOf(tonghuaScore));
+			}
 			
 			return response;
 		} catch (Exception e) {
@@ -834,7 +854,9 @@ public class Model_WSClient {
 			//返回网查4.0输入项json
 			response.setInputParams(inputJson);
 			//返回网查4.0的模型分
-			response.setModelScore(wangchaScore+"");
+			if(wangchaScore != null){
+				response.setModelResult(String.valueOf(wangchaScore));
+			}
 			
 			return response;
 		} catch (Exception e) {
@@ -888,16 +910,14 @@ public class Model_WSClient {
 			Application_Work_Proxy proxy = new Application_Work_Proxy();
 			Application_PortType service = proxy.getApplication_PortType();
 			
-			
-			
-			Object workResponse = service.modelScore(cell,inputJson,null);
-			
-	
+			Object workSocre = service.modelScore(cell,inputJson,null);
 			
 			ModelServiceResponse response = new ModelServiceResponse();
 			//无输入项，返回空字符
 			response.setInputParams(inputJson);
-			response.setModelScore(workResponse+"");
+			if(workSocre != null){
+				response.setModelResult(String.valueOf(workSocre));
+			}
 			return response;
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -964,13 +984,15 @@ public class Model_WSClient {
 				service = proxy.getApplication_PortType();
 			}
 			
-			Object workScore = service.modelScore(cell,inputJson,null);
+			Object xueliScore = service.modelScore(cell,inputJson,null);
 			
 			ModelServiceResponse response = new ModelServiceResponse();
 			//返回学历模型输入项
 			response.setInputParams(inputJson);
 			//返回学历模型分
-			response.setModelScore(workScore+"");
+			if(xueliScore != null){
+				response.setModelResult(String.valueOf(xueliScore));
+			}
 			
 			return response;
 		} catch (Exception e) {
@@ -999,7 +1021,7 @@ public class Model_WSClient {
 		ModelServiceResponse response = null;
 		
 //		/**********************工作模型测试(-1.0)**********************/
-		/*inputMap.put("arti_date", "20170317");
+		inputMap.put("arti_date", "20170317");
 		inputMap.put("cd_comp_name1", "佛山市哈帕萨幕墙门窗有限公司");
 		inputMap.put("cd_comp_name2", "佛山市皇派门窗有限公司");
 		inputMap.put("cd_comp_name3", "四川久大制盐有限责任公司长山盐矿");
@@ -1010,7 +1032,7 @@ public class Model_WSClient {
 		inputMap.put("cd_comp_info_updt_time3", "20060823");
 		inputMap.put("cd_comp_info_updt_time4", "");
 		inputMap.put("cd_comp_info_updt_time5", "");
-		response = Model_WSClient.getWorkModelScore(mobile,inputMap);*/
+		response = Model_WSClient.getWorkModelScore(mobile,inputMap);
 		
 		/*********************学历模型**************************/
 //		inputMap.put("college_is_211", "0");
@@ -1064,11 +1086,9 @@ public class Model_WSClient {
 		
 		/**********************DNA3.0模型测试*****************/
 		
-		response = Model_WSClient.getDNA3ModelScore("160001004901", inputMap, "YYYY","0000");
 		
 		System.out.println("返回输入项JSON："+response.getInputParams());
-		System.out.println("返回输出分数："+response.getModelScore());
-		System.out.println("返回输出结果码："+response.getResultCode());
+		System.out.println("返回输出分数："+response.getModelResult());
 		
 		
 		
