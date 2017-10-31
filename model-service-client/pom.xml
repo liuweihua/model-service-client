@@ -85,6 +85,7 @@
 				<target>1.7</target>
 			</configuration>
 		</plugin>
+		
 		<plugin>
             <groupId>org.apache.maven.plugins</groupId>
             <artifactId>maven-source-plugin</artifactId>
@@ -98,6 +99,20 @@
 				</descriptorRefs>
 			</configuration>
 		</plugin>
+		<plugin>  
+	         <artifactId>maven-source-plugin</artifactId>   
+	         <configuration>  
+	             <attach>true</attach>  
+	         </configuration>  
+	         <executions>  
+	             <execution>
+	                 <phase>package</phase>  
+	                 <goals>  
+	                     <goal>jar-no-fork</goal>  
+	                 </goals>  
+	             </execution>  
+	         </executions>  
+	   	</plugin>
 		<plugin>
 			<!-- explicitly define maven-deploy-plugin after other to force exec
 				order -->
