@@ -1087,8 +1087,64 @@ public class Model_WSClient {
 		/**********************DNA3.0模型测试*****************/
 		
 		
-		System.out.println("返回输入项JSON："+response.getInputParams());
-		System.out.println("返回输出分数："+response.getModelResult());
+		/*System.out.println("返回输入项JSON："+response.getInputParams());
+		System.out.println("返回输出分数："+response.getModelResult());*/
+		
+		for(Entry<String, String> ent : AlphaSInputColumn.getAllAlphaSInputs().entrySet()){
+			System.out.println(ent.getKey());
+		}
+		
+		for(Entry<String, String> ent : Fumian1InputColumn.getAllFumian1Inputs().entrySet()){
+			System.out.println(ent.getKey());
+		}
+		
+		for(Entry<String, String> ent : Fumian2InputColumn.getAllFumian2Inputs().entrySet()){
+			System.out.println(ent.getKey());
+		}
+		
+		for(Entry<String, String> ent : GlrenInputColumn.getAllGlrenInputs().entrySet()){
+			System.out.println(ent.getKey());
+		}
+		
+		for(Entry<String, String> ent : LiehuInputColumn.getAllLiehuInputs().entrySet()){
+			System.out.println(ent.getKey());
+		}
+		
+		for(Entry<String, String> ent : QuyuInputColumn.getAllQuyuInputs().entrySet()){
+			System.out.println(ent.getKey());
+		}
+		
+		for(Entry<String, String> ent : RhInputColumn.getAllRhInputs().entrySet()){
+			System.out.println(ent.getKey());
+		}
+		
+		for(Entry<String, String> ent : ShilianInputColumn.getAllShilianInputs().entrySet()){
+			System.out.println(ent.getKey());
+		}
+		
+		for(Entry<String, String> ent : SrfuzhaiInputColumn.getAllSrfuzhaiInputs().entrySet()){
+			System.out.println(ent.getKey());
+		}
+		
+		for(Entry<String, String> ent : TonghuaInputColumn.getAllTonghuaInputs().entrySet()){
+			System.out.println(ent.getKey());
+		}
+		
+		for(Entry<String, String> ent : Wangcha4InputColumn.getAllWangcha4Inputs().entrySet()){
+			System.out.println(ent.getKey());
+		}
+		
+		for(Entry<String, String> ent : WorkInputColumn.getAllWorkInputs().entrySet()){
+			System.out.println(ent.getKey());
+		}
+		
+		for(Entry<String, String> ent : XueliInputColumn.getAllNoXueliInputs().entrySet()){
+			System.out.println(ent.getKey());
+		}
+		
+		for(Entry<String, String> ent : XueliInputColumn.getAllXueliInputs().entrySet()){
+			System.out.println(ent.getKey());
+		}
 		
 		
 		

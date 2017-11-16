@@ -41,7 +41,9 @@ public class AlphaSInputColumn {
 		alphasInputs.put("marital_status", "20");
 		alphasInputs.put("cust_sex", "None");
 		alphasInputs.put("double_0", "2");
-
+		//alphas新增输入项，是否自由职业
+		alphasInputs.put("freedom_career", "0");
+		
 
 		
 	}
