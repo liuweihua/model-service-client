@@ -1059,7 +1059,7 @@ public class Model_WSClient {
 //		response = Model_WSClient.getWangcha4ModelScore(mobile, inputMap);
 //		
 //		/*********************失联模型**************************/
-		inputMap.put("CALLMIN6MONTH", "70067");
+		/*inputMap.put("CALLMIN6MONTH", "70067");
 		inputMap.put("id_match", "0");
 		inputMap.put("xiaohao", "0");
 		inputMap.put("zj_contact_intersect_cnt", "61");
@@ -1073,24 +1073,36 @@ public class Model_WSClient {
 		inputMap.put("bj_contact_intersect_cnt", "56");
 		inputMap.put("call_contact_intersect_cnt", null);
 		inputMap.put("CALLTIMES6MONTH", "712");
-		response = Model_WSClient.getShilianModelScore(mobile, inputMap);
+		response = Model_WSClient.getShilianModelScore(mobile, inputMap);*/
 		
 		
 		/**********************Alpha-S模型测试*****************/
-//		inputMap.put("shilian_score", "s");
-//		inputMap.put("renhang_score", "s");
-//		inputMap.put("fumian2_score", "s");
-//		inputMap.put("tjr_approve_result", "s");
-//		response = Model_WSClient.getAlphaSModelScore(mobile, inputMap);
+		inputMap.put("cust_age", "25");
+		inputMap.put("cust_sex", "男");
+		inputMap.put("guanlianren_score", 5.0);
+		inputMap.put("double_0", 2);
+		inputMap.put("xueli_score", 1.0);
+		inputMap.put("renhang_score", -1.0);
+		inputMap.put("quyu_score", 3.0);
+		inputMap.put("gongzuo_score", 5.0);
+		inputMap.put("fumian1_score", 2.0);
+		inputMap.put("liehu_score", 5.0);
+		inputMap.put("freedom_career", "0");
+		inputMap.put("shilian_score", "2.0");
+		inputMap.put("tonghua_score", "5.0");
+		inputMap.put("marital_status", "20");
+		inputMap.put("shourufuzhai_score", "3.0");
+		inputMap.put("fumian2_score", "5.0");
+		response = Model_WSClient.getAlphaSModelScore(mobile, inputMap);
 		
 		
 		/**********************DNA3.0模型测试*****************/
 		
 		
-		/*System.out.println("返回输入项JSON："+response.getInputParams());
-		System.out.println("返回输出分数："+response.getModelResult());*/
+		System.out.println("返回输入项JSON："+response.getInputParams());
+		System.out.println("返回输出分数："+response.getModelResult());
 		
-		for(Entry<String, String> ent : AlphaSInputColumn.getAllAlphaSInputs().entrySet()){
+		/*for(Entry<String, String> ent : AlphaSInputColumn.getAllAlphaSInputs().entrySet()){
 			System.out.println(ent.getKey());
 		}
 		
@@ -1144,7 +1156,7 @@ public class Model_WSClient {
 		
 		for(Entry<String, String> ent : XueliInputColumn.getAllXueliInputs().entrySet()){
 			System.out.println(ent.getKey());
-		}
+		}*/
 		
 		
 		
