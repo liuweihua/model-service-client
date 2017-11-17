@@ -151,7 +151,7 @@ public class Model_WSClient {
 				inputJson = JacksonUtil.beanToJson(allInput);
 			}
 			
-			logger.info("获取Alpha-S模型分的输入项："+inputJson);
+			logger.info(cell+"获取Alpha-S模型分的输入项："+inputJson);
 			
 			Application_AlphaS_Proxy proxy = new Application_AlphaS_Proxy();
 			Application_PortType service = proxy.getApplication_PortType();
@@ -229,7 +229,7 @@ public class Model_WSClient {
 				inputJson = JacksonUtil.beanToJson(allInput);
 			}
 			
-			logger.info("获取DNA3.0模型分的输入项："+inputJson);
+			logger.info(custNo+"获取DNA3.0模型分的输入项："+inputJson);
 			
 			Application_DNA3_Proxy proxy = new Application_DNA3_Proxy();
 			Application_PortType service = proxy.getApplication_PortType();
@@ -292,7 +292,7 @@ public class Model_WSClient {
 				inputJson = JacksonUtil.beanToJson(allInput);
 			}
 			
-			logger.info("获取负面1模型分的输入项："+inputJson);
+			logger.info(cell+"获取负面1模型分的输入项："+inputJson);
 			
 			Application_Fumian1_Proxy proxy = new Application_Fumian1_Proxy();
 			Application_PortType service = proxy.getApplication_PortType();
@@ -353,7 +353,7 @@ public class Model_WSClient {
 				inputJson = JacksonUtil.beanToJson(allInput);
 			}
 			
-			logger.info("获取负面2模型分的输入项："+inputJson);
+			logger.info(cell+"获取负面2模型分的输入项："+inputJson);
 			
 			Application_Fumian2_Proxy proxy = new Application_Fumian2_Proxy();
 			Application_PortType service = proxy.getApplication_PortType();
@@ -414,7 +414,7 @@ public class Model_WSClient {
 				inputJson = JacksonUtil.beanToJson(allInput);
 			}
 			
-			logger.info("获取关联人模型分的输入项："+inputJson);
+			logger.info(cell+"获取关联人模型分的输入项："+inputJson);
 			
 			Application_Glren_Proxy proxy = new Application_Glren_Proxy();
 			Application_PortType service = proxy.getApplication_PortType();
@@ -475,7 +475,7 @@ public class Model_WSClient {
 				inputJson = JacksonUtil.beanToJson(allInput);
 			}
 			
-			logger.info("获取猎户模型分的输入项："+inputJson);
+			logger.info(cell+"获取猎户模型分的输入项："+inputJson);
 			
 			Application_Liehu_Proxy proxy = new Application_Liehu_Proxy();
 			Application_PortType service = proxy.getApplication_PortType();
@@ -536,7 +536,7 @@ public class Model_WSClient {
 				inputJson = JacksonUtil.beanToJson(allInput);
 			}
 			
-			logger.info("获取区域模型分的输入项："+inputJson);
+			logger.info(cell+"获取区域模型分的输入项："+inputJson);
 			
 			Application_Quyu_Proxy proxy = new Application_Quyu_Proxy();
 			Application_PortType service = proxy.getApplication_PortType();
@@ -599,7 +599,7 @@ public class Model_WSClient {
 				inputJson = JacksonUtil.beanToJson(allInput);
 			}
 			
-			logger.info("获取人行模型分的输入项："+inputJson);
+			logger.info(cell+"获取人行模型分的输入项："+inputJson);
 			
 			Application_Rh_Proxy proxy = new Application_Rh_Proxy();
 			Application_PortType service = proxy.getApplication_PortType();
@@ -660,7 +660,7 @@ public class Model_WSClient {
 				inputJson = JacksonUtil.beanToJson(allInput);
 			}
 			
-			logger.info("获取失联模型分的输入项："+inputJson);
+			logger.info(cell+"获取失联模型分的输入项："+inputJson);
 			
 			Application_Shilian_Proxy proxy = new Application_Shilian_Proxy();
 			Application_PortType service = proxy.getApplication_PortType();
@@ -721,7 +721,7 @@ public class Model_WSClient {
 				inputJson = JacksonUtil.beanToJson(allInput);
 			}
 			
-			logger.info("获取收入负债模型分的输入项："+inputJson);
+			logger.info(cell+"获取收入负债模型分的输入项："+inputJson);
 			
 			Application_Srfuzhai_Proxy proxy = new Application_Srfuzhai_Proxy();
 			Application_PortType service = proxy.getApplication_PortType();
@@ -783,7 +783,7 @@ public class Model_WSClient {
 				inputJson = JacksonUtil.beanToJson(allInput);
 			}
 			
-			logger.info("获取通话模型分的输入项："+inputJson);
+			logger.info(cell+"获取通话模型分的输入项："+inputJson);
 			
 			Application_Tonghua_Proxy proxy = new Application_Tonghua_Proxy();
 			Application_PortType service = proxy.getApplication_PortType();
@@ -844,7 +844,7 @@ public class Model_WSClient {
 				inputJson = JacksonUtil.beanToJson(allInput);
 			}
 			
-			logger.info("获取网查4.0模型分的输入项："+inputJson);
+			logger.info(cell+"获取网查4.0模型分的输入项："+inputJson);
 			
 			Application_Wangcha4_Proxy proxy = new Application_Wangcha4_Proxy();
 			Application_PortType service = proxy.getApplication_PortType();
@@ -905,7 +905,7 @@ public class Model_WSClient {
 				inputJson = JacksonUtil.beanToJson(allInput);
 			}
 			
-			logger.info("获取工作模型分的输入项："+inputJson);
+			logger.info(cell+"获取工作模型分的输入项："+inputJson);
 			
 			Application_Work_Proxy proxy = new Application_Work_Proxy();
 			Application_PortType service = proxy.getApplication_PortType();
@@ -975,11 +975,11 @@ public class Model_WSClient {
 			
 			Application_PortType service = null;
 			if(isPynXueli){
-				logger.info("获取鹏元学历模型分的输入项："+inputJson);
+				logger.info(cell+"获取鹏元学历模型分的输入项："+inputJson);
 				Application_Xueli_Proxy proxy = new Application_Xueli_Proxy();
 				service = proxy.getApplication_PortType();
 			}else{
-				logger.info("获取非鹏元学历模型分的输入项："+inputJson);
+				logger.info(cell+"获取非鹏元学历模型分的输入项："+inputJson);
 				Application_NoPyXueli_Proxy proxy = new Application_NoPyXueli_Proxy();
 				service = proxy.getApplication_PortType();
 			}
