@@ -23,6 +23,7 @@ import com.smy.entity.quyu.QuyuInputColumn;
 import com.smy.entity.rh.RhInputColumn;
 import com.smy.entity.shilian.ShilianInputColumn;
 import com.smy.entity.srfuzhai.SrfuzhaiInputColumn;
+import com.smy.entity.subprime.SubprimeInputColumn;
 import com.smy.entity.tonghua.TonghuaInputColumn;
 import com.smy.entity.wangcha4.Wangcha4InputColumn;
 import com.smy.entity.work.WorkInputColumn;
@@ -40,6 +41,7 @@ import com.smy.server.quyu.Application_Quyu_Proxy;
 import com.smy.server.rh.Application_Rh_Proxy;
 import com.smy.server.shilian.Application_Shilian_Proxy;
 import com.smy.server.srfuzhai.Application_Srfuzhai_Proxy;
+import com.smy.server.subprime.Application_Subprime_Proxy;
 import com.smy.server.tonghua.Application_Tonghua_Proxy;
 import com.smy.server.wangcha4.Application_Wangcha4_Proxy;
 import com.smy.server.work.Application_Work_Proxy;
@@ -1001,6 +1003,71 @@ public class Model_WSClient {
 		}
 		
 	}
+	
+	
+	/**
+	 * 
+	 * <b>方法说明：调用次贷导流模型</b>
+	 * <p>
+	 * <b>详细描述：</b>
+	 * @作者：lwh
+	 * @时间：2017-11-16下午2:36:12
+	 * @param cell
+	 * @param xueliInputMap
+	 * @param isPynXueli
+	 * @return
+	 * @throws Exception
+	 */
+	public static ModelServiceResponse getSubprimeModel(String modelUrl,String cell,Map<String, Object> subprimeInputMap) throws Exception{
+		
+		try {
+			
+			Map<String, Object> allInput = SubprimeInputColumn.getAllSubprimeInputs();
+			
+			if(allInput != null && allInput.size()>0){
+				Iterator<Entry<String, Object>> it = allInput.entrySet().iterator();
+				while(it.hasNext()){
+					Entry<String, Object> ent = it.next();
+					Object inputValue = subprimeInputMap.get(ent.getKey());
+					if(inputValue != null){
+						if(inputValue instanceof String){
+							String strVal = inputValue.toString();
+							if(StringUtils.isNotBlank(strVal) && !strVal.toLowerCase().equals("null")){
+								//不为空，或者null字符串的时候赋值
+								allInput.put(ent.getKey(), inputValue.toString() );
+							}
+						}else{
+							allInput.put(ent.getKey(), inputValue+"" );
+						}
+					}
+				}
+			}
+			String inputJson = "{}";
+			if(allInput != null && allInput.size()>0){
+				inputJson = JacksonUtil.beanToJson(allInput);
+			}
+			
+			logger.info("获取次贷导流模型分的输入项："+inputJson);
+			Application_Subprime_Proxy proxy = new Application_Subprime_Proxy(modelUrl);
+			Application_PortType service = proxy.getApplication_PortType();
+			
+			Object xueliScore = service.modelScore(cell,inputJson,null);
+			
+			ModelServiceResponse response = new ModelServiceResponse();
+			//返回学历模型输入项
+			response.setInputParams(inputJson);
+			//返回学历模型分
+			if(xueliScore != null){
+				response.setModelResult(String.valueOf(xueliScore));
+			}
+			
+			return response;
+		} catch (Exception e) {
+			e.printStackTrace();
+			throw e;
+		}
+		
+	}
 
 	
 	public static void main(String[] args) throws Exception {
@@ -1077,26 +1144,33 @@ public class Model_WSClient {
 		
 		
 		/**********************Alpha-S模型测试*****************/
-		inputMap.put("cust_age", "25");
-		inputMap.put("cust_sex", "男");
-		inputMap.put("guanlianren_score", 5.0);
-		inputMap.put("double_0", 2);
-		inputMap.put("xueli_score", 1.0);
-		inputMap.put("renhang_score", -1.0);
-		inputMap.put("quyu_score", 3.0);
-		inputMap.put("gongzuo_score", 5.0);
-		inputMap.put("fumian1_score", 2.0);
-		inputMap.put("liehu_score", 5.0);
-		inputMap.put("freedom_career", "0");
-		inputMap.put("shilian_score", "2.0");
-		inputMap.put("tonghua_score", "5.0");
-		inputMap.put("marital_status", "20");
-		inputMap.put("shourufuzhai_score", "3.0");
-		inputMap.put("fumian2_score", "5.0");
-		response = Model_WSClient.getAlphaSModelScore(mobile, inputMap);
+//		inputMap.put("cust_age", "25");
+//		inputMap.put("cust_sex", "男");
+//		inputMap.put("guanlianren_score", 5.0);
+//		inputMap.put("double_0", 2);
+//		inputMap.put("xueli_score", 1.0);
+//		inputMap.put("renhang_score", -1.0);
+//		inputMap.put("quyu_score", 3.0);
+//		inputMap.put("gongzuo_score", 5.0);
+//		inputMap.put("fumian1_score", 2.0);
+//		inputMap.put("liehu_score", 5.0);
+//		inputMap.put("freedom_career", "0");
+//		inputMap.put("shilian_score", "2.0");
+//		inputMap.put("tonghua_score", "5.0");
+//		inputMap.put("marital_status", "20");
+//		inputMap.put("shourufuzhai_score", "3.0");
+//		inputMap.put("fumian2_score", "5.0");
+//		response = Model_WSClient.getAlphaSModelScore(mobile, inputMap);
 		
 		
 		/**********************DNA3.0模型测试*****************/
+		
+		//response = Model_WSClient.getDNA3ModelScore("", inputMap, "YYYY", "0000");
+		
+		
+		/*********************次导流模型**************************/
+		
+		response = Model_WSClient.getSubprimeModel("http://192.168.2.132:7880/soap/?wsdl",mobile, inputMap);
 		
 		
 		System.out.println("返回输入项JSON："+response.getInputParams());
