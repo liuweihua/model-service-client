@@ -11,6 +11,7 @@ import org.apache.commons.lang3.StringUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import com.alibaba.fastjson.JSON;
 import com.smy.common.ModelServiceResponse;
 import com.smy.entity.alphas.AlphaSInputColumn;
 import com.smy.entity.br.BrInputColumn;
@@ -1044,7 +1045,7 @@ public class Model_WSClient {
 			}
 			String inputJson = "{}";
 			if(allInput != null && allInput.size()>0){
-				inputJson = JacksonUtil.beanToJson(allInput);
+				inputJson = JSON.toJSONString(allInput);
 			}
 			
 			logger.info("获取次贷导流模型分的输入项："+inputJson);
