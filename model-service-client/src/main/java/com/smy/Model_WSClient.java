@@ -121,7 +121,7 @@ public class Model_WSClient {
 	 * @return
 	 * @throws Exception
 	 */
-	public static ModelServiceResponse getAlphaSModelScore(String cell,Map<String, Object> alphasInputMap) throws Exception{
+	public static ModelServiceResponse getAlphaSModelScore(String modelUrl,String cell,Map<String, Object> alphasInputMap) throws Exception{
 		
 		
 		try {
@@ -153,7 +153,7 @@ public class Model_WSClient {
 			
 			logger.info(cell+"获取Alpha-S模型分的输入项："+inputJson);
 			
-			Application_AlphaS_Proxy proxy = new Application_AlphaS_Proxy();
+			Application_AlphaS_Proxy proxy = new Application_AlphaS_Proxy(modelUrl);
 			Application_PortType service = proxy.getApplication_PortType();
 			Object alphasResult = service.modelScore(cell,inputJson,null);
 			
@@ -199,7 +199,7 @@ public class Model_WSClient {
 	 * @return
 	 * @throws Exception
 	 */
-	public static ModelServiceResponse getDNA3ModelScore(String custNo,Map<String, Object> dnaInputMap,String versionBranch,String shortBranch) throws Exception{
+	public static ModelServiceResponse getDNA3ModelScore(String modelUrl,String custNo,Map<String, Object> dnaInputMap,String versionBranch,String shortBranch) throws Exception{
 		
 		
 		try {
@@ -231,7 +231,7 @@ public class Model_WSClient {
 			
 			logger.info(custNo+"获取DNA3.0模型分的输入项："+inputJson);
 			
-			Application_DNA3_Proxy proxy = new Application_DNA3_Proxy();
+			Application_DNA3_Proxy proxy = new Application_DNA3_Proxy(modelUrl);
 			Application_PortType service = proxy.getApplication_PortType();
 			Map<String, Object> params = new HashMap<String, Object>();
 			params.put("versionBranch", versionBranch);
@@ -1059,7 +1059,7 @@ public class Model_WSClient {
 //		response = Model_WSClient.getWangcha4ModelScore(mobile, inputMap);
 //		
 //		/*********************失联模型**************************/
-		inputMap.put("CALLMIN6MONTH", "70067");
+		/*inputMap.put("CALLMIN6MONTH", "70067");
 		inputMap.put("id_match", "0");
 		inputMap.put("xiaohao", "0");
 		inputMap.put("zj_contact_intersect_cnt", "61");
@@ -1073,24 +1073,26 @@ public class Model_WSClient {
 		inputMap.put("bj_contact_intersect_cnt", "56");
 		inputMap.put("call_contact_intersect_cnt", null);
 		inputMap.put("CALLTIMES6MONTH", "712");
-		response = Model_WSClient.getShilianModelScore(mobile, inputMap);
+		response = Model_WSClient.getShilianModelScore(mobile, inputMap);*/
 		
 		
 		/**********************Alpha-S模型测试*****************/
-//		inputMap.put("shilian_score", "s");
-//		inputMap.put("renhang_score", "s");
-//		inputMap.put("fumian2_score", "s");
-//		inputMap.put("tjr_approve_result", "s");
-//		response = Model_WSClient.getAlphaSModelScore(mobile, inputMap);
+		/*inputMap.put("shilian_score", "s");
+		inputMap.put("renhang_score", "s");
+		inputMap.put("fumian2_score", "s");
+		inputMap.put("tjr_approve_result", "s");*/
+		//response = Model_WSClient.getAlphaSModelScore("http://192.168.2.132:7890/soap/?wsdl",mobile, inputMap);
 		
 		
 		/**********************DNA3.0模型测试*****************/
+		response = Model_WSClient.getDNA3ModelScore("http://192.168.2.132:7898/soap/?wsdl",mobile, inputMap, "YYYY", "0000");
 		
 		
-		/*System.out.println("返回输入项JSON："+response.getInputParams());
-		System.out.println("返回输出分数："+response.getModelResult());*/
 		
-		for(Entry<String, String> ent : AlphaSInputColumn.getAllAlphaSInputs().entrySet()){
+		System.out.println("返回输入项JSON："+response.getInputParams());
+		System.out.println("返回输出分数："+response.getModelResult());
+		
+		/*for(Entry<String, String> ent : AlphaSInputColumn.getAllAlphaSInputs().entrySet()){
 			System.out.println(ent.getKey());
 		}
 		
@@ -1144,7 +1146,7 @@ public class Model_WSClient {
 		
 		for(Entry<String, String> ent : XueliInputColumn.getAllXueliInputs().entrySet()){
 			System.out.println(ent.getKey());
-		}
+		}*/
 		
 		
 		

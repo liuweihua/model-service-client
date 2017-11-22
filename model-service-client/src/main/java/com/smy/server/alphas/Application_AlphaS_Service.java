@@ -24,7 +24,9 @@ public class Application_AlphaS_Service extends Service implements Application_S
 	 */
 	private static final long serialVersionUID = 1L;
 
-	public Application_AlphaS_Service() {
+	private String application_address;
+	public Application_AlphaS_Service(String modelUrl) {
+		this.application_address = modelUrl;
     }
 
 
@@ -36,12 +38,11 @@ public class Application_AlphaS_Service extends Service implements Application_S
         super(wsdlLoc, sName);
     }
 
-    // Use to get a proxy class for Application
-    HttpUrlConfig huc = HttpUrlConfig.getInstance();
-    private String Application_address = huc.getAlphaSUrlUrl();
+   
+  
 
     public String getApplicationAddress() {
-        return Application_address;
+        return application_address;
     }
 
     // The WSDD service name defaults to the port name.
@@ -58,7 +59,7 @@ public class Application_AlphaS_Service extends Service implements Application_S
     public Application_PortType getApplication() throws ServiceException {
        URL endpoint;
         try {
-            endpoint = new URL(Application_address);
+            endpoint = new URL(application_address);
         }catch (java.net.MalformedURLException e) {
             throw new ServiceException(e);
         }
@@ -76,7 +77,7 @@ public class Application_AlphaS_Service extends Service implements Application_S
     }
 
     public void setApplicationEndpointAddress(java.lang.String address) {
-        Application_address = address;
+    	application_address = address;
     }
 
     /**
@@ -87,7 +88,7 @@ public class Application_AlphaS_Service extends Service implements Application_S
     public Remote getPort(Class serviceEndpointInterface) throws ServiceException {
         try {
             if (Application_PortType.class.isAssignableFrom(serviceEndpointInterface)) {
-                Application_AlphaS_PortType _stub = new Application_AlphaS_PortType(new URL(Application_address), this);
+                Application_AlphaS_PortType _stub = new Application_AlphaS_PortType(new URL(application_address), this);
                 _stub.setPortName(getApplicationWSDDServiceName());
                 return _stub;
             }

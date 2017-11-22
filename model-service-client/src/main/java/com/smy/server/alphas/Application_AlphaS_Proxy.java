@@ -11,18 +11,15 @@ public class Application_AlphaS_Proxy implements Application_PortType {
   private String _endpoint = null;
   private Application_PortType application_PortType = null;
   
-  public Application_AlphaS_Proxy() {
-    _initApplicationProxy();
-  }
-  
-  public Application_AlphaS_Proxy(String endpoint) {
-    _endpoint = endpoint;
+  private String modelUrl;//模型访问地址
+  public Application_AlphaS_Proxy(String modelUrl) {
+	this.modelUrl = modelUrl;
     _initApplicationProxy();
   }
   
   private void _initApplicationProxy() {
     try {
-      application_PortType = (new Application_AlphaS_Service()).getApplication();
+      application_PortType = (new Application_AlphaS_Service(modelUrl)).getApplication();
       if (application_PortType != null) {
         if (_endpoint != null){
           ((Stub)application_PortType)._setProperty("javax.xml.rpc.service.endpoint.address", _endpoint);

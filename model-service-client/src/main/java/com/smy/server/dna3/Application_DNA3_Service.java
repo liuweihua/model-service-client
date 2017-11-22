@@ -24,7 +24,9 @@ public class Application_DNA3_Service extends Service implements Application_Ser
 	 */
 	private static final long serialVersionUID = 1L;
 
-	public Application_DNA3_Service() {
+	 private String application_address;
+	public Application_DNA3_Service(String modelUrl) {
+		this.application_address = modelUrl;
     }
 
 
@@ -39,11 +41,10 @@ public class Application_DNA3_Service extends Service implements Application_Ser
     /**
      * 获取连接模型服务的地址
      */
-    HttpUrlConfig huc = HttpUrlConfig.getInstance();
-    private String Application_address = huc.getDna3Url();
+   
 
     public String getApplicationAddress() {
-        return Application_address;
+        return application_address;
     }
 
     // The WSDD service name defaults to the port name.
@@ -60,7 +61,7 @@ public class Application_DNA3_Service extends Service implements Application_Ser
     public Application_PortType getApplication() throws ServiceException {
        URL endpoint;
         try {
-            endpoint = new URL(Application_address);
+            endpoint = new URL(application_address);
         }catch (java.net.MalformedURLException e) {
             throw new ServiceException(e);
         }
@@ -78,7 +79,7 @@ public class Application_DNA3_Service extends Service implements Application_Ser
     }
 
     public void setApplicationEndpointAddress(java.lang.String address) {
-        Application_address = address;
+    	application_address = address;
     }
 
     /**
@@ -89,7 +90,7 @@ public class Application_DNA3_Service extends Service implements Application_Ser
     public Remote getPort(Class serviceEndpointInterface) throws ServiceException {
         try {
             if (Application_PortType.class.isAssignableFrom(serviceEndpointInterface)) {
-                Application_DNA3_PortType _stub = new Application_DNA3_PortType(new URL(Application_address), this);
+                Application_DNA3_PortType _stub = new Application_DNA3_PortType(new URL(application_address), this);
                 _stub.setPortName(getApplicationWSDDServiceName());
                 return _stub;
             }
