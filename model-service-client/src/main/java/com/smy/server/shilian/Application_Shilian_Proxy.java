@@ -11,18 +11,14 @@ public class Application_Shilian_Proxy implements Application_PortType {
   private String _endpoint = null;
   private Application_PortType application_PortType = null;
   
-  public Application_Shilian_Proxy() {
-    _initApplicationProxy();
-  }
-  
-  public Application_Shilian_Proxy(String endpoint) {
-    _endpoint = endpoint;
-    _initApplicationProxy();
+  private String modelUrl;
+  public Application_Shilian_Proxy(String modelUrl) {
+    this.modelUrl = modelUrl;
   }
   
   private void _initApplicationProxy() {
     try {
-      application_PortType = (new Application_Shilian_Service()).getApplication();
+      application_PortType = (new Application_Shilian_Service(modelUrl)).getApplication();
       if (application_PortType != null) {
         if (_endpoint != null){
           ((Stub)application_PortType)._setProperty("javax.xml.rpc.service.endpoint.address", _endpoint);

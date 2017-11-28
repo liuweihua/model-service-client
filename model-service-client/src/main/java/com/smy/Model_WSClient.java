@@ -263,7 +263,7 @@ public class Model_WSClient {
 	 * @return
 	 * @throws Exception
 	 */
-	public static ModelServiceResponse getFumian1ModelScore(String cell,Map<String, Object> fumian1InputMap) throws Exception{
+	public static ModelServiceResponse getFumian1ModelScore(String modelUrl,String cell,Map<String, Object> fumian1InputMap) throws Exception{
 		
 		try {
 			
@@ -294,7 +294,7 @@ public class Model_WSClient {
 			
 			logger.info(cell+"获取负面1模型分的输入项："+inputJson);
 			
-			Application_Fumian1_Proxy proxy = new Application_Fumian1_Proxy();
+			Application_Fumian1_Proxy proxy = new Application_Fumian1_Proxy(modelUrl);
 			Application_PortType service = proxy.getApplication_PortType();
 			Object fumian1Score = service.modelScore(cell,inputJson,null);
 			
@@ -324,7 +324,7 @@ public class Model_WSClient {
 	 * @return
 	 * @throws Exception
 	 */
-	public static ModelServiceResponse getFumian2ModelScore(String cell,Map<String, Object> fumian2InputMap) throws Exception{
+	public static ModelServiceResponse getFumian2ModelScore(String modelUrl,String cell,Map<String, Object> fumian2InputMap) throws Exception{
 		
 		try {
 			
@@ -355,7 +355,7 @@ public class Model_WSClient {
 			
 			logger.info(cell+"获取负面2模型分的输入项："+inputJson);
 			
-			Application_Fumian2_Proxy proxy = new Application_Fumian2_Proxy();
+			Application_Fumian2_Proxy proxy = new Application_Fumian2_Proxy(modelUrl);
 			Application_PortType service = proxy.getApplication_PortType();
 			Object fumian2Score = service.modelScore(cell,inputJson,null);
 			
@@ -385,7 +385,7 @@ public class Model_WSClient {
 	 * @return
 	 * @throws Exception
 	 */
-	public static ModelServiceResponse getGlrenModelScore(String cell,Map<String, Object> glrenInputMap) throws Exception{
+	public static ModelServiceResponse getGlrenModelScore(String modelUrl,String cell,Map<String, Object> glrenInputMap) throws Exception{
 		
 		try {
 			
@@ -416,7 +416,7 @@ public class Model_WSClient {
 			
 			logger.info(cell+"获取关联人模型分的输入项："+inputJson);
 			
-			Application_Glren_Proxy proxy = new Application_Glren_Proxy();
+			Application_Glren_Proxy proxy = new Application_Glren_Proxy(modelUrl);
 			Application_PortType service = proxy.getApplication_PortType();
 			Object glrScore = service.modelScore(cell,inputJson,null);
 			
@@ -446,7 +446,7 @@ public class Model_WSClient {
 	 * @return
 	 * @throws Exception
 	 */
-	public static ModelServiceResponse getLiehuModelScore(String cell,Map<String, Object> liehuInputMap) throws Exception{
+	public static ModelServiceResponse getLiehuModelScore(String modelUrl,String cell,Map<String, Object> liehuInputMap) throws Exception{
 		
 		try {
 			
@@ -477,7 +477,7 @@ public class Model_WSClient {
 			
 			logger.info(cell+"获取猎户模型分的输入项："+inputJson);
 			
-			Application_Liehu_Proxy proxy = new Application_Liehu_Proxy();
+			Application_Liehu_Proxy proxy = new Application_Liehu_Proxy(modelUrl);
 			Application_PortType service = proxy.getApplication_PortType();
 			Object liehuScore = service.modelScore(cell,inputJson,null);
 			
@@ -507,7 +507,7 @@ public class Model_WSClient {
 	 * @return
 	 * @throws Exception
 	 */
-	public static ModelServiceResponse getQuyuModelScore(String cell,Map<String, Object> quyuInputsMap) throws Exception{
+	public static ModelServiceResponse getQuyuModelScore(String modelUrl,String cell,Map<String, Object> quyuInputsMap) throws Exception{
 		
 		try {
 
@@ -538,7 +538,7 @@ public class Model_WSClient {
 			
 			logger.info(cell+"获取区域模型分的输入项："+inputJson);
 			
-			Application_Quyu_Proxy proxy = new Application_Quyu_Proxy();
+			Application_Quyu_Proxy proxy = new Application_Quyu_Proxy(modelUrl);
 			Application_PortType service = proxy.getApplication_PortType();
 			
 			Object quyuScore = service.modelScore(cell,inputJson,null);
@@ -570,7 +570,7 @@ public class Model_WSClient {
 	 * @return
 	 * @throws Exception
 	 */
-	public static ModelServiceResponse getRhModelScore(String cell,Map<String, Object> rhInputMap) throws Exception{
+	public static ModelServiceResponse getRhModelScore(String modelUrl,String cell,Map<String, Object> rhInputMap) throws Exception{
 		
 		try {
 			
@@ -601,7 +601,7 @@ public class Model_WSClient {
 			
 			logger.info(cell+"获取人行模型分的输入项："+inputJson);
 			
-			Application_Rh_Proxy proxy = new Application_Rh_Proxy();
+			Application_Rh_Proxy proxy = new Application_Rh_Proxy(modelUrl);
 			Application_PortType service = proxy.getApplication_PortType();
 			Object rhScore = service.modelScore(cell,inputJson,null);
 			
@@ -631,7 +631,7 @@ public class Model_WSClient {
 	 * @return
 	 * @throws Exception
 	 */
-	public static ModelServiceResponse getShilianModelScore(String cell,Map<String, Object> shilianInputMap) throws Exception{
+	public static ModelServiceResponse getShilianModelScore(String modelUrl, String cell,Map<String, Object> shilianInputMap) throws Exception{
 		
 		try {
 			
@@ -662,7 +662,7 @@ public class Model_WSClient {
 			
 			logger.info(cell+"获取失联模型分的输入项："+inputJson);
 			
-			Application_Shilian_Proxy proxy = new Application_Shilian_Proxy();
+			Application_Shilian_Proxy proxy = new Application_Shilian_Proxy(modelUrl);
 			Application_PortType service = proxy.getApplication_PortType();
 			Object shilianScore = service.modelScore(cell,inputJson,null);
 			
@@ -692,7 +692,7 @@ public class Model_WSClient {
 	 * @return
 	 * @throws Exception
 	 */
-	public static ModelServiceResponse getSrfuzhaiModelScore(String cell,Map<String, Object> srfuzhaiInputMap) throws Exception{
+	public static ModelServiceResponse getSrfuzhaiModelScore(String modelUrl,String cell,Map<String, Object> srfuzhaiInputMap) throws Exception{
 		
 		try {
 			
@@ -723,7 +723,7 @@ public class Model_WSClient {
 			
 			logger.info(cell+"获取收入负债模型分的输入项："+inputJson);
 			
-			Application_Srfuzhai_Proxy proxy = new Application_Srfuzhai_Proxy();
+			Application_Srfuzhai_Proxy proxy = new Application_Srfuzhai_Proxy(modelUrl);
 			Application_PortType service = proxy.getApplication_PortType();
 			Object shouruScore = service.modelScore(cell,inputJson,null);
 			
@@ -754,7 +754,7 @@ public class Model_WSClient {
 	 * @return
 	 * @throws Exception
 	 */
-	public static ModelServiceResponse getTonghuaModelScore(String cell,Map<String, Object> tonghuaInputMap) throws Exception{
+	public static ModelServiceResponse getTonghuaModelScore(String modelUrl,String cell,Map<String, Object> tonghuaInputMap) throws Exception{
 		
 		try {
 			
@@ -785,7 +785,7 @@ public class Model_WSClient {
 			
 			logger.info(cell+"获取通话模型分的输入项："+inputJson);
 			
-			Application_Tonghua_Proxy proxy = new Application_Tonghua_Proxy();
+			Application_Tonghua_Proxy proxy = new Application_Tonghua_Proxy(modelUrl);
 			Application_PortType service = proxy.getApplication_PortType();
 			Object tonghuaScore = service.modelScore(cell,inputJson,null);
 			
@@ -815,7 +815,7 @@ public class Model_WSClient {
 	 * @return
 	 * @throws Exception
 	 */
-	public static ModelServiceResponse getWangcha4ModelScore(String cell,Map<String, Object> wangchaInputMap) throws Exception{
+	public static ModelServiceResponse getWangcha4ModelScore(String modelUrl,String cell,Map<String, Object> wangchaInputMap) throws Exception{
 		
 		try {
 			
@@ -846,7 +846,7 @@ public class Model_WSClient {
 			
 			logger.info(cell+"获取网查4.0模型分的输入项："+inputJson);
 			
-			Application_Wangcha4_Proxy proxy = new Application_Wangcha4_Proxy();
+			Application_Wangcha4_Proxy proxy = new Application_Wangcha4_Proxy(modelUrl);
 			Application_PortType service = proxy.getApplication_PortType();
 			Object wangchaScore = service.modelScore(cell,inputJson,null);
 			
@@ -876,7 +876,7 @@ public class Model_WSClient {
 	 * @return
 	 * @throws Exception
 	 */
-	public static ModelServiceResponse getWorkModelScore(String cell,Map<String,Object> workInputMap) throws Exception{
+	public static ModelServiceResponse getWorkModelScore(String modelUrl,String cell,Map<String,Object> workInputMap) throws Exception{
 		
 		try {
 			
@@ -907,7 +907,7 @@ public class Model_WSClient {
 			
 			logger.info(cell+"获取工作模型分的输入项："+inputJson);
 			
-			Application_Work_Proxy proxy = new Application_Work_Proxy();
+			Application_Work_Proxy proxy = new Application_Work_Proxy(modelUrl);
 			Application_PortType service = proxy.getApplication_PortType();
 			
 			Object workSocre = service.modelScore(cell,inputJson,null);
@@ -936,7 +936,7 @@ public class Model_WSClient {
 	 * @return
 	 * @throws Exception
 	 */
-	public static ModelServiceResponse getXueliModelScore(String cell,Map<String, Object> xueliInputMap,boolean isPynXueli) throws Exception{
+	public static ModelServiceResponse getXueliModelScore(String modelUrl,String cell,Map<String, Object> xueliInputMap,boolean isPynXueli) throws Exception{
 		
 		try {
 			
@@ -976,11 +976,11 @@ public class Model_WSClient {
 			Application_PortType service = null;
 			if(isPynXueli){
 				logger.info(cell+"获取鹏元学历模型分的输入项："+inputJson);
-				Application_Xueli_Proxy proxy = new Application_Xueli_Proxy();
+				Application_Xueli_Proxy proxy = new Application_Xueli_Proxy(modelUrl);
 				service = proxy.getApplication_PortType();
 			}else{
 				logger.info(cell+"获取非鹏元学历模型分的输入项："+inputJson);
-				Application_NoPyXueli_Proxy proxy = new Application_NoPyXueli_Proxy();
+				Application_NoPyXueli_Proxy proxy = new Application_NoPyXueli_Proxy(modelUrl);
 				service = proxy.getApplication_PortType();
 			}
 			
@@ -1073,8 +1073,11 @@ public class Model_WSClient {
 		inputMap.put("bj_contact_intersect_cnt", "56");
 		inputMap.put("call_contact_intersect_cnt", null);
 		inputMap.put("CALLTIMES6MONTH", "712");
-		response = Model_WSClient.getShilianModelScore(mobile, inputMap);*/
+		response = Model_WSClient.getShilianModelScore("http://192.168.2.132:7890/soap/?wsdl",mobile, inputMap);*/
 		
+		
+		/**********************负面1模型测试*****************/
+		response = Model_WSClient.getFumian1ModelScore("http://192.168.2.132:7890/soap/?wsdl",mobile, inputMap);
 		
 		/**********************Alpha-S模型测试*****************/
 		/*inputMap.put("shilian_score", "s");
@@ -1085,7 +1088,7 @@ public class Model_WSClient {
 		
 		
 		/**********************DNA3.0模型测试*****************/
-		response = Model_WSClient.getDNA3ModelScore("http://192.168.2.132:7898/soap/?wsdl",mobile, inputMap, "YYYY", "0000");
+		//response = Model_WSClient.getDNA3ModelScore("http://192.168.2.132:7898/soap/?wsdl",mobile, inputMap, "YYYY", "0000");
 		
 		
 		

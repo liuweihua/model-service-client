@@ -11,18 +11,16 @@ public class Application_Fumian1_Proxy implements Application_PortType {
   private String _endpoint = null;
   private Application_PortType application_PortType = null;
   
-  public Application_Fumian1_Proxy() {
-    _initApplicationProxy();
-  }
-  
-  public Application_Fumian1_Proxy(String endpoint) {
-    _endpoint = endpoint;
+ 
+  private String modelUrl;
+  public Application_Fumian1_Proxy(String modelUrl) {
+    this.modelUrl = modelUrl;
     _initApplicationProxy();
   }
   
   private void _initApplicationProxy() {
     try {
-      application_PortType = (new Application_Fumian1_Service()).getApplication();
+      application_PortType = (new Application_Fumian1_Service(modelUrl)).getApplication();
       if (application_PortType != null) {
         if (_endpoint != null){
           ((Stub)application_PortType)._setProperty("javax.xml.rpc.service.endpoint.address", _endpoint);

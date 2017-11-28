@@ -12,7 +12,6 @@ import org.apache.axis.AxisFault;
 import org.apache.axis.client.Service;
 import org.apache.axis.client.Stub;
 
-import com.smy.common.HttpUrlConfig;
 import com.smy.server.Application_PortType;
 import com.smy.server.Application_Service;
 
@@ -24,7 +23,9 @@ public class Application_Liehu_Service extends Service implements Application_Se
 	 */
 	private static final long serialVersionUID = 1L;
 
-	public Application_Liehu_Service() {
+	private String application_address;
+	public Application_Liehu_Service(String modelUrl) {
+		this.application_address = modelUrl;
     }
 
 
@@ -35,13 +36,9 @@ public class Application_Liehu_Service extends Service implements Application_Se
     public Application_Liehu_Service(java.lang.String wsdlLoc, javax.xml.namespace.QName sName) throws javax.xml.rpc.ServiceException {
         super(wsdlLoc, sName);
     }
-
-    // Use to get a proxy class for Application
-    HttpUrlConfig huc = HttpUrlConfig.getInstance();
-    private String Application_address = huc.getAlphaSUrlUrl();
-
+    
     public String getApplicationAddress() {
-        return Application_address;
+        return application_address;
     }
 
     // The WSDD service name defaults to the port name.
@@ -58,7 +55,7 @@ public class Application_Liehu_Service extends Service implements Application_Se
     public Application_PortType getApplication() throws ServiceException {
        URL endpoint;
         try {
-            endpoint = new URL(Application_address);
+            endpoint = new URL(application_address);
         }catch (java.net.MalformedURLException e) {
             throw new ServiceException(e);
         }
@@ -76,7 +73,7 @@ public class Application_Liehu_Service extends Service implements Application_Se
     }
 
     public void setApplicationEndpointAddress(java.lang.String address) {
-        Application_address = address;
+    	application_address = address;
     }
 
     /**
@@ -87,7 +84,7 @@ public class Application_Liehu_Service extends Service implements Application_Se
     public Remote getPort(Class serviceEndpointInterface) throws ServiceException {
         try {
             if (Application_PortType.class.isAssignableFrom(serviceEndpointInterface)) {
-                Application_Liehu_PortType _stub = new Application_Liehu_PortType(new URL(Application_address), this);
+                Application_Liehu_PortType _stub = new Application_Liehu_PortType(new URL(application_address), this);
                 _stub.setPortName(getApplicationWSDDServiceName());
                 return _stub;
             }

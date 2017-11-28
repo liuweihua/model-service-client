@@ -24,7 +24,9 @@ public class Application_Shilian_Service extends Service implements Application_
 	 */
 	private static final long serialVersionUID = 1L;
 
-	public Application_Shilian_Service() {
+	private String application_address;
+	public Application_Shilian_Service(String modelUrl) {
+		this.application_address = modelUrl;
     }
 
 
@@ -34,14 +36,10 @@ public class Application_Shilian_Service extends Service implements Application_
 
     public Application_Shilian_Service(java.lang.String wsdlLoc, javax.xml.namespace.QName sName) throws javax.xml.rpc.ServiceException {
         super(wsdlLoc, sName);
-    }
-
-    // Use to get a proxy class for Application
-    HttpUrlConfig huc = HttpUrlConfig.getInstance();
-    private String Application_address = huc.getAlphaSUrlUrl();
+    }   
 
     public String getApplicationAddress() {
-        return Application_address;
+        return application_address;
     }
 
     // The WSDD service name defaults to the port name.
@@ -58,7 +56,7 @@ public class Application_Shilian_Service extends Service implements Application_
     public Application_PortType getApplication() throws ServiceException {
        URL endpoint;
         try {
-            endpoint = new URL(Application_address);
+            endpoint = new URL(application_address);
         }catch (java.net.MalformedURLException e) {
             throw new ServiceException(e);
         }
@@ -76,7 +74,7 @@ public class Application_Shilian_Service extends Service implements Application_
     }
 
     public void setApplicationEndpointAddress(java.lang.String address) {
-        Application_address = address;
+    	application_address = address;
     }
 
     /**
@@ -87,7 +85,7 @@ public class Application_Shilian_Service extends Service implements Application_
     public Remote getPort(Class serviceEndpointInterface) throws ServiceException {
         try {
             if (Application_PortType.class.isAssignableFrom(serviceEndpointInterface)) {
-                Application_Shilian_PortType _stub = new Application_Shilian_PortType(new URL(Application_address), this);
+                Application_Shilian_PortType _stub = new Application_Shilian_PortType(new URL(application_address), this);
                 _stub.setPortName(getApplicationWSDDServiceName());
                 return _stub;
             }
