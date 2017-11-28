@@ -1032,14 +1032,14 @@ public class Model_WSClient {
 //		inputMap.put("cd_comp_info_updt_time3", "20060823");
 //		inputMap.put("cd_comp_info_updt_time4", "");
 //		inputMap.put("cd_comp_info_updt_time5", "");
-//		response = Model_WSClient.getWorkModelScore(mobile,inputMap);
+//		response = Model_WSClient.getWorkModelScore("http://192.168.2.132:7890/soap/?wsdl",mobile,inputMap);
 //		
 		/*********************学历模型**************************/
 //		inputMap.put("college_is_211", "0");
 //		inputMap.put("py_degree", 0);
 //		inputMap.put("py_studystyle", "");
 //		inputMap.put("age_big", "0");
-//		response = Model_WSClient.getXueliModelScore(mobile, inputMap, false);
+//		response = Model_WSClient.getXueliModelScore("http://192.168.2.132:7890/soap/?wsdl",mobile, inputMap, false);
 		
 		
 //		/*********************区域模型**************************/
@@ -1052,11 +1052,11 @@ public class Model_WSClient {
 //		inputMap.put("top1_place", null);
 //		inputMap.put("cd_comp_add2", "--");
 //		inputMap.put("cd_comp_add1", "市鹿泉区杏苑路X号路鹿华路热电西门西行XX米");
-//		response = Model_WSClient.getQuyuModelScore(mobile, inputMap);
+//		response = Model_WSClient.getQuyuModelScore("http://192.168.2.132:7890/soap/?wsdl",mobile, inputMap);
 		
 //		/*********************网查模型**************************/
 //		inputMap.put("cust_age", "23");
-//		response = Model_WSClient.getWangcha4ModelScore(mobile, inputMap);
+//		response = Model_WSClient.getWangcha4ModelScore("http://192.168.2.132:7890/soap/?wsdl",mobile, inputMap);
 //		
 //		/*********************失联模型**************************/
 		/*inputMap.put("CALLMIN6MONTH", "70067");
@@ -1072,12 +1072,33 @@ public class Model_WSClient {
 		inputMap.put("CALLOUTTIME", null);
 		inputMap.put("bj_contact_intersect_cnt", "56");
 		inputMap.put("call_contact_intersect_cnt", null);
-		inputMap.put("CALLTIMES6MONTH", "712");
-		response = Model_WSClient.getShilianModelScore("http://192.168.2.132:7890/soap/?wsdl",mobile, inputMap);*/
+		inputMap.put("CALLTIMES6MONTH", "712");*/
+		//response = Model_WSClient.getShilianModelScore("http://192.168.2.132:7890/soap/?wsdl",mobile, inputMap);
 		
 		
 		/**********************负面1模型测试*****************/
-		response = Model_WSClient.getFumian1ModelScore("http://192.168.2.132:7890/soap/?wsdl",mobile, inputMap);
+		//response = Model_WSClient.getFumian1ModelScore("http://192.168.2.132:7890/soap/?wsdl",mobile, inputMap);
+		
+		/**********************负面2模型测试*****************/
+		//response = Model_WSClient.getFumian2ModelScore("http://192.168.2.132:7890/soap/?wsdl",mobile, inputMap);
+		
+		
+		/**********************关联人模型测试*****************/
+		//response = Model_WSClient.getGlrenModelScore("http://192.168.2.132:7890/soap/?wsdl",mobile, inputMap);
+		
+		/**********************猎户座模型测试*****************/
+		//response = Model_WSClient.getLiehuModelScore("http://192.168.2.132:7890/soap/?wsdl",mobile, inputMap);
+		
+		/**********************人行模型测试*****************/
+		//response = Model_WSClient.getRhModelScore("http://192.168.2.132:7890/soap/?wsdl",mobile, inputMap);
+		
+		/**********************收入负债模型测试*****************/
+		//response = Model_WSClient.getSrfuzhaiModelScore("http://192.168.2.132:7890/soap/?wsdl",mobile, inputMap);
+		
+		
+		/**********************通话模型测试*****************/
+		//response = Model_WSClient.getTonghuaModelScore("http://192.168.2.132:7890/soap/?wsdl",mobile, inputMap);
+		
 		
 		/**********************Alpha-S模型测试*****************/
 		/*inputMap.put("shilian_score", "s");
