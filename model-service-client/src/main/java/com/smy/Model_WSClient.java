@@ -7,6 +7,8 @@ import java.util.List;
 import java.util.Map;
 import java.util.Map.Entry;
 
+import org.apache.axis.client.Call;
+import org.apache.axis.client.Service;
 import org.apache.commons.lang3.StringUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -237,6 +239,8 @@ public class Model_WSClient {
 			params.put("versionBranch", versionBranch);
 			params.put("shortBranch", shortBranch);
 			Object dna3Result = service.modelScore(custNo,inputJson,params);
+			
+			
 			ModelServiceResponse response = new ModelServiceResponse();
 			//返回DNA3.0输入项json
 			response.setInputParams(inputJson);
@@ -1109,7 +1113,7 @@ public class Model_WSClient {
 		
 		
 		/**********************DNA3.0模型测试*****************/
-		//response = Model_WSClient.getDNA3ModelScore("http://192.168.2.132:7898/soap/?wsdl",mobile, inputMap, "YYYY", "0000");
+		response = Model_WSClient.getDNA3ModelScore("http://192.168.2.132:7898/soap/?wsdl",mobile, inputMap, "YYYN", "0000");
 		
 		
 		
@@ -1174,6 +1178,35 @@ public class Model_WSClient {
 		
 		
 		
+		
+		/*Object dna3Result = "";
+		try {  
+            // 直接引用远程的wsdl文件  
+            // 以下都是套路  
+            Service service = new Service();  
+            Call call = (Call) service.createCall();  
+            call.setTargetEndpointAddress(modelUrl);  
+            call.setOperationName("credit_score_dna3");// WSDL里面描述的接口名称  
+            call.addParameter("cust_no",  
+                    org.apache.axis.encoding.XMLType.XSD_STRING,  
+                    javax.xml.rpc.ParameterMode.IN);// 接口的参数  
+            call.addParameter("version_branch",  
+                    org.apache.axis.encoding.XMLType.XSD_STRING,  
+                    javax.xml.rpc.ParameterMode.IN);// 接口的参数  
+            call.addParameter("short_branch",  
+                    org.apache.axis.encoding.XMLType.XSD_STRING,  
+                    javax.xml.rpc.ParameterMode.IN);// 接口的参数  
+            call.addParameter("inputx",  
+                    org.apache.axis.encoding.XMLType.XSD_STRING,  
+                    javax.xml.rpc.ParameterMode.IN);// 接口的参数  
+            
+            call.setReturnType(org.apache.axis.encoding.XMLType.XSD_STRING);// 设置返回类型  
+        
+            dna3Result = call.invoke(new Object[] { custNo,versionBranch,shortBranch,inputJson });  
+            
+        } catch (Exception e) {  
+            System.err.println(e.toString());  
+        }*/
 		
 		
 		
